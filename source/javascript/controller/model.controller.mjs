@@ -1,13 +1,16 @@
 import { ModelView } from "../view/model.view.mjs";
 
 class ModelController{
-    #character;
-    #view;
+    #viewCharacter;
 
     constructor(){
-        this.#character=[];
-        this.#view = new ModelView();
+        this.#viewCharacter = new ModelView();
     }
 
-    
+    init(data){
+        this.#viewCharacter.init(data);
+    }
 }
+
+export const model = new ModelController();
+//model.init();

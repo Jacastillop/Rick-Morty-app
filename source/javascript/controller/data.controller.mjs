@@ -9,15 +9,15 @@ import { IndexView } from "../view/index.view.mjs";
 // Services
 import { RickAndMortyService } from "../model/services/rick-and-morty.service.mjs";
 
+import { model } from "../controller/model.controller.mjs"
+
 class DataController {
     #rickAndMortyURL;
-    #privateCharacters;
     #view;
 
     constructor() {
         this.#rickAndMortyURL = Config.RickAndMortyAPI_URL;
-        this.#privateCharacters = [];
-        this.#view = new IndexView();
+        this.#view = new IndexView(model);
     }
 
     async init() {
@@ -25,6 +25,8 @@ class DataController {
         await data.consumerApi();
         this.#view.init(data.getCharacters());
     }
+
+
 
 }
 
