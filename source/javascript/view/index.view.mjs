@@ -55,9 +55,9 @@ export class IndexView {
     image.id = "image";
     image.classList.add("image-character");
     image.src = url;
-    image.addEventListener("click", () =>
+    image.addEventListener("click", () => {         
       this.#pageModel.init(this.#characters[id - 1])
-    );
+    });
     return image;
   }
 }
